@@ -24,8 +24,9 @@
         /// Try to inactive existing emoji entry
         /// </summary>
         /// <param name="id">id of emoji to be inactived</param>
+        /// <param name="userId">user id of this action</param>
         /// <returns>true if emoji state is updated successfully, otherwise false</returns>
-        public bool TryInactiveExistingCustomEmojiEntry(string id);
+        public bool TryInactiveExistingCustomEmojiEntry(string id, string userId);
 
         /// <summary>
         /// Get list of CustomEmojiEntry with State Public

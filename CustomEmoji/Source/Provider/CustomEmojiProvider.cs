@@ -106,7 +106,7 @@
         }
 
         ///<inheritdoc/>
-        public bool TryInactiveExistingCustomEmojiEntry(string id)
+        public bool TryInactiveExistingCustomEmojiEntry(string id, string userId)
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -118,6 +118,11 @@
             if (entry == null)
             {
                 // Log unable to find exisiting record with Id.
+                return false;
+            }
+            else if(!string.Equals((string)entry["AuthorUserObjectId"], userId,StringComparison.OrdinalIgnoreCase))
+            {
+                // Provided user doesn't have permission to inactive this custom emoji.
                 return false;
             }
 
